@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: igp-deployment
+  labels:
+    app: abc
+spec:
+  replicas: 2
+  selector:
+   matchLabels:
+    app: abc
+  template:
+   metadata:
+    name: abccont
+    labels:
+      app: abc
+   spec:
+    containers:
+    -  name: samplecontainer  
+       image: safdhar/abctechnologies:v1
+       ports:
+       - containerPort: 8080
